@@ -37,7 +37,7 @@ services:
     image: phpmyadmin:latest
     container_name: events-phpmyadmin
     ports:
-      - "8081:80"
+      - "8082:80"
     environment:
       PMA_HOST: mysql
     depends_on:
