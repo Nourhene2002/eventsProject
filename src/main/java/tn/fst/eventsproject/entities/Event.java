@@ -24,6 +24,7 @@ public class Event implements Serializable {
     @ManyToMany(mappedBy = "events")
     Set<Participant> participants;
     @OneToMany(fetch = FetchType.EAGER)
-    Set<Logistics> logistics;
+    private Set<Logistics> logistics;
 
 }
+
