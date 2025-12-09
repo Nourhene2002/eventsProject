@@ -1,3 +1,4 @@
-FROM openjdk:17
-COPY target/eventsProject-1.0.0.jar app.jar
+FROM eclipse-temurin:17-jre-alpine
+COPY target/eventsProject-1.0.0-SNAPSHOT.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
