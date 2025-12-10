@@ -16,8 +16,9 @@ services:
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
-      retries: 10
       timeout: 5s
+      retries: 20
+    command: --default-authentication-plugin=mysql_native_password
 
   app:
     image: nourheneayari/eventsproject:latest
@@ -25,7 +26,7 @@ services:
     ports:
       - "8089:8089"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/eventsdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/eventsdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&autoReconnect=true
       SPRING_DATASOURCE_USERNAME: eventsuser
       SPRING_DATASOURCE_PASSWORD: events123
     depends_on:
